@@ -13,4 +13,5 @@ Eu implementei as seguintes classes: User(UserModel), Branch(BranchModel) e Vehi
 
 
 
-![ClassDiagram_ObjectStyle](https://github.com/user-attachments/assets/a4f48037-1bb5-41de-8606-8b2376258942)
+![image](https://github.com/user-attachments/assets/775822e4-ed9d-4bd0-8ce7-6f5440060a54)
+
