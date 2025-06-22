@@ -9,7 +9,7 @@
         
         public string Email { get; set; }
 
-        public int PasswordHash { get; set; }
+        public string PasswordHash { get; set; }
 
         public UserRole Role{ get; set; }
     }

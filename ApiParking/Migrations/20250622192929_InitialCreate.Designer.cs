@@ -11,14 +11,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApiParking.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250622150621_reform2")]
-    partial class reform2
+    [Migration("20250622192929_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "9.0.6");
+            modelBuilder
+                .HasAnnotation("ProductVersion", "9.0.6")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true);
 
             modelBuilder.Entity("ApiParking.Models.BranchModel", b =>
                 {
@@ -55,8 +59,9 @@ namespace ApiParking.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PasswordHash")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("Role")
                         .HasColumnType("INTEGER");
@@ -76,7 +81,6 @@ namespace ApiParking.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Color")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("EntryTime")
@@ -86,15 +90,12 @@ namespace ApiParking.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Model")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Year")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
